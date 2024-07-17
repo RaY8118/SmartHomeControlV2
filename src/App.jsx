@@ -5,12 +5,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-
+// import "./App.css";
+import "./index.css";
 function App() {
   const handleFormSubmit = (formData) => {
     console.log("Form data submitted:", formData);
-    toast.success("Form data submitted successfully!");
+    // toast.success("Form data submitted successfully!");
   };
 
   return (
@@ -19,11 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Buttons />} />
-          <Route
-            path="/form"
-            element={<Forms />}
-            onSubmit={handleFormSubmit}
-          />
+          <Route path="/form" element={<Forms onSubmit={handleFormSubmit} />} />
         </Routes>
       </Router>
     </>
