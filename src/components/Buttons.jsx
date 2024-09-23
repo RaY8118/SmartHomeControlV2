@@ -10,29 +10,18 @@ import { PiFanLight, PiFanFill } from "react-icons/pi";
 import { CiSquarePlus } from "react-icons/ci";
 
 const Buttons = () => {
-  const [devices, setDevices] = useState({
-    device1: { name: "", state: false },
-    device2: { name: "", state: false },
-    device3: { name: "", state: false },
-    device4: { name: "", state: false },
-  });
+  const [devices, setDevices] = useState({});
 
   useEffect(() => {
     const unsubscribe = fetchRelayData((data) => {
       if (data) {
-        setDevices({
-          device1: data.device1,
-          device2: data.device2,
-          device3: data.device3,
-          device4: data.device4,
-        });
+        const updatedDevices = {};
+        for (let device in data) {
+          updatedDevices[device] = data[device] || { name: "", state: false };
+        }
+        setDevices(updatedDevices);
       } else {
-        setDevices({
-          device1: { name: "", state: false },
-          device2: { name: "", state: false },
-          device3: { name: "", state: false },
-          device4: { name: "", state: false },
-        });
+        setDevices({});
       }
     });
 
@@ -48,7 +37,7 @@ const Buttons = () => {
     }));
     writeRelayData(relayId, newRelayState);
     toast.success(
-      `${devices[relayId].name} switched ${newRelayState ? "ON" : "OFF"}`
+      `${devices[relayId].name || relayId} switched ${newRelayState ? "ON" : "OFF"}`
     );
   };
 
@@ -81,15 +70,15 @@ const Buttons = () => {
         return null;
     }
   };
+
   return (
     <>
-      {" "}
       <div className="bg-blue-100 font-mono min-h-screen">
         <div className="flex justify-between items-center p-4 bg-gray-100 rounded-xl">
           <h2 className="text-sky-400 sm:text-3xl">Welcome User</h2>
           <Link
             to={"/form"}
-            className="text-blue-500 hover:text-blue-700  sm:text-3xl underline hover:underline-offset-4 flex items-center"
+            className="text-blue-500 hover:text-blue-700 sm:text-3xl underline hover:underline-offset-4 flex items-center"
           >
             <CiSquarePlus className="mr-2" />
             Add Device

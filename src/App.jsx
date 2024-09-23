@@ -1,11 +1,8 @@
-import { useState } from "react";
 import Buttons from "./components/Buttons";
 import Forms from "./components/Form";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import "./App.css";
 import "./index.css";
 function App() {
   const handleFormSubmit = (formData) => {
