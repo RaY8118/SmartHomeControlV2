@@ -1,0 +1,39 @@
+{
+    "short_name": "HomeAuto",
+    "name": "Home Automation App",
+    "icons": [
+        {
+            "src": "images/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "images/domotics192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "images/domotics512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshot-wide.png",
+            "sizes": "1917x942",
+            "type": "image/png",
+            "label": "Wide view"
+        },
+        {
+            "src": "images/screenshot-normal.png",
+            "sizes": "800x1280",
+            "type": "image/png",
+            "label": "Normal view"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}
